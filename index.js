@@ -5,6 +5,11 @@ var express = require('express'),
     httpServer = http.Server(app),
     io = require('socket.io').listen(httpServer);
 
+var arDrone = require('ar-drone');
+var client = arDrone.createClient({
+  ip: '192.168.1.2'
+});
+// console.log(client);
 app.configure(function(){
   app.set('view engine','html');
   app.set('views', __dirname + '/views');
@@ -29,14 +34,20 @@ io.configure('development', function(){
 });
 
 io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
+  socket.emit('connected', { hello: 'world' });
+
+  socket.on('takeoff', function (data) {
+    console.log('Take off');
+    client.takeoff();
   });
+  socket.on('landar', function(data) {
+    console.log('land');
+    client.stop();
+    client.land();
+  })
 });
 
-var arDrone = require('ar-drone');
-var client = arDrone.createClient();
+
 
 // client.takeoff();
 

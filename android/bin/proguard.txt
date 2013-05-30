@@ -1,0 +1,6 @@
+# view AndroidManifest.xml #generated:14
+-keep class com.MyMobileWebApp.App { <init>(...); }
+
+# view AndroidManifest.xml #generated:24
+-keep class com.MyMobileWebApp.MyMobileWebApp { <init>(...); }
+
