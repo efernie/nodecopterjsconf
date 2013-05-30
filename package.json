@@ -1,0 +1,20 @@
+{
+  "name": "nodecopterjsconf",
+  "version": "0.0.0",
+  "description": "node copter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ar-drone": "~0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/efernie/nodecopterjsconf.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "readmeFilename": "readme.md",
+  "gitHead": "61e914359f31c8f0f4a19f896f191798fdb87957"
+}
