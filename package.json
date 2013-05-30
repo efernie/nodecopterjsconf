@@ -4,10 +4,13 @@
   "description": "node copter",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+
   },
   "dependencies": {
-    "ar-drone": "~0.1.0"
+    "ar-drone": "~0.1.0",
+    "express": "~3.2.5",
+    "consolidate": "~0.9.1",
+    "socket.io": "~0.9.14"
   },
   "repository": {
     "type": "git",
