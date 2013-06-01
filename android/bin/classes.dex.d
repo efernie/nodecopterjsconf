@@ -8,6 +8,7 @@
 /Users/ericf2023/development/nodecopterjsconf/android/bin/classes/com/MyMobileWebApp/MyMobileWebApp$1.class \
 /Users/ericf2023/development/nodecopterjsconf/android/bin/classes/com/MyMobileWebApp/MyMobileWebApp$2.class \
 /Users/ericf2023/development/nodecopterjsconf/android/bin/classes/com/MyMobileWebApp/MyMobileWebApp$3.class \
+/Users/ericf2023/development/nodecopterjsconf/android/bin/classes/com/MyMobileWebApp/MyMobileWebApp$mylocationlistener.class \
 /Users/ericf2023/development/nodecopterjsconf/android/bin/classes/com/MyMobileWebApp/MyMobileWebApp$WebAppInterface.class \
 /Users/ericf2023/development/nodecopterjsconf/android/bin/classes/com/MyMobileWebApp/MyMobileWebApp.class \
 /Users/ericf2023/development/nodecopterjsconf/android/bin/classes/com/MyMobileWebApp/R$attr.class \

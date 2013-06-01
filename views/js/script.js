@@ -1,4 +1,5 @@
-var socket;
+var socket, deltaX, deltaY, deltaZ;
+
 var app = {
   newImage: '',
   takePicture: function () {
@@ -20,13 +21,14 @@ var app = {
 // refreshButton.
 if ( typeof Android === 'object' ) {
   socket = io.connect('http://192.168.1.2:3000');
+  // socket = io.connect('http://172.20.43.113:3000');
 } else {
   socket = io.connect('http://localhost:3000');
 }
 
   socket.on('connected', function (data) {
     $('#socketInfo').text('connected');
-    console.log(data);
+    // console.log(data);
     // socket.emit('my other event', { my: 'data' });
   });
 
@@ -46,21 +48,69 @@ $('#land').on('click', function(e){
   socket.emit('landar');
 });
 
+$('#upar').on('click', function(e){
+  e.preventDefault();
+  socket.emit('upar');
+});
+
+$('#downar').on('click', function(e){
+  e.preventDefault();
+  socket.emit('downar');
+});
+
+$('#getLat').on('click', function(e){
+  e.preventDefault();
+  Android.getLocation();
+})
+
+
+$('#startGet').on('click', function(e){
+  e.preventDefault();
+  Android.startGet();
+});
+
+$('#stopGet').on('click', function(e){
+  e.preventDefault();
+  Android.stopGet();
+});
+
 $('#takePicture').on("click", function (e) {
   e.preventDefault();
   app.takePicture().then(function(){
     showPictures();
   });
-})
+});
 
+app.deltaXX = function deltaXX () {
+  // deltaX = Android.getDeltaX();
+  // // console.log(deltaX);
+  // if ( Math.round(deltaX) !== 0 ) {
+  //   // socket.emit('deltaX', { x: deltaX });
+  // }
+};
+
+app.deltaYY = function deltaYY () {
+  deltaY = Android.getDeltaY();
+  if ( Math.round(deltaY) !== 0 ) {
+    socket.emit('deltaY', { y: deltaY });
+  }
+};
+
+app.deltaZZ = function deltaZZ () {
+  // deltaZ = Android.getDeltaZ();
+  // if ( Math.round(deltaZ) !== 0 ) {
+  //   socket.emit('deltaZ', { z: deltaZ });
+  // }
+};
+
+app.lattitude = function lattitude() {
+  var location = Android.getLattitude();
+  console.log(location);
+}
 showPictures = function showPictures() {
   var self = this;
   if ( typeof Android === 'object' ) {
     app.newImage = 'data:image/jpeg;base64,' + Android.getSelectedPicture();
   }
-
   $('#picture').append('<img src="' + app.newImage + '"/>');
-      // var compiledHtml = self.compileImage();
-      // $(compiledHtml).find('img').removeClass('hide');
-      // $('#selectedPictures').prepend(compiledHtml);
 }
